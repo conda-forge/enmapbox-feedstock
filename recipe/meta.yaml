@@ -25,6 +25,8 @@ outputs:
         - numba >=0.56.4
         - numpy
         - scikit-learn
+      run_constrained:
+        - qca <2.3.10  # https://github.com/conda-forge/qgis-feedstock/issues/596
     test:
       commands:
         # QGIS Python must start
