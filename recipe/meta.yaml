@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   # -------------------
@@ -43,7 +43,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage('enmapbox-lite', exact=True) }}
-        - astropy
+        - astropy-base
         - catboost
         - enfrosp_enmapboxapp
         - enpt >=1.4.1
