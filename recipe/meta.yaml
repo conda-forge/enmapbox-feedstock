@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 2
+  number: 3
 
 outputs:
   # -------------------
@@ -20,11 +20,14 @@ outputs:
         - python >=3.10
         - qgis >={{ qgis_ltr_version }}
         - colorama
+        - defusedxml
         - gdal
         - matplotlib
         - numba >=0.56.4
         - numpy
+        - pyqtgraph
         - scikit-learn
+        - skops
     test:
       commands:
         # QGIS Python must start
