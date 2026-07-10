@@ -1,4 +1,4 @@
-{% set version = "0.1.0" %}
+{% set version = "0.1.1" %}
 {% set qgis_ltr_version = "3.40" %}  # adjust to current LTR
 
 package:
@@ -6,7 +6,7 @@ package:
   version: {{ version }}
 
 build:
-  number: 3
+  number: 1
 
 outputs:
   # -------------------
