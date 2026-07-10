@@ -22,7 +22,7 @@ outputs:
         - colorama
         - defusedxml
         - gdal
-        - matplotlib
+        - matplotlib-base
         - numba >=0.56.4
         - numpy
         - pyqtgraph
@@ -46,7 +46,7 @@ outputs:
     requirements:
       run:
         - {{ pin_subpackage('enmapbox-base', exact=True) }}
-        - astropy
+        - astropy-base
         - catboost
         - enfrosp_enmapboxapp
         - enpt >=1.4.1
