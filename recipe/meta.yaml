@@ -1,18 +1,18 @@
-{% set version = "0.1.0" %}
-{% set qgis_ltr_version = "3.40" %}  # adjust to current LTR
+{% set version = "0.2.0" %}
+{% set qgis_ltr_version = "3.44" %}  # adjust to current LTR
 
 package:
   name: enmapbox-suite
   version: {{ version }}
 
 build:
-  number: 2
+  number: 0
 
 outputs:
   # -------------------
   # Lite / core version
   # -------------------
-  - name: enmapbox-lite
+  - name: enmapbox-base
     build:
       noarch: generic
     requirements:
@@ -20,11 +20,14 @@ outputs:
         - python >=3.10
         - qgis >={{ qgis_ltr_version }}
         - colorama
+        - defusedxml
         - gdal
         - matplotlib
         - numba >=0.56.4
         - numpy
+        - pyqtgraph
         - scikit-learn
+        - skops
     test:
       commands:
         # QGIS Python must start
@@ -42,7 +45,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - {{ pin_subpackage('enmapbox-lite', exact=True) }}
+        - {{ pin_subpackage('enmapbox-base', exact=True) }}
         - astropy
         - catboost
         - enfrosp_enmapboxapp
