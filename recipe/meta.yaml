@@ -1,5 +1,5 @@
 {% set version = "0.1.1" %}
-{% set qgis_ltr_version = "3.40" %}  # adjust to current LTR
+{% set qgis_ltr_version = "3.44" %}  # adjust to current LTR
 
 package:
   name: enmapbox-suite
