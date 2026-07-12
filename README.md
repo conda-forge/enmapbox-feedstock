@@ -42,7 +42,7 @@ Current release info
 | Name | Downloads | Version | Platforms |
 | --- | --- | --- | --- |
 | [![Conda Recipe](https://img.shields.io/badge/recipe-enmapbox-green.svg)](https://anaconda.org/conda-forge/enmapbox) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/enmapbox.svg)](https://anaconda.org/conda-forge/enmapbox) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/enmapbox.svg)](https://anaconda.org/conda-forge/enmapbox) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/enmapbox.svg)](https://anaconda.org/conda-forge/enmapbox) |
-| [![Conda Recipe](https://img.shields.io/badge/recipe-enmapbox--lite-green.svg)](https://anaconda.org/conda-forge/enmapbox-lite) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/enmapbox-lite.svg)](https://anaconda.org/conda-forge/enmapbox-lite) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/enmapbox-lite.svg)](https://anaconda.org/conda-forge/enmapbox-lite) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/enmapbox-lite.svg)](https://anaconda.org/conda-forge/enmapbox-lite) |
+| [![Conda Recipe](https://img.shields.io/badge/recipe-enmapbox--base-green.svg)](https://anaconda.org/conda-forge/enmapbox-base) | [![Conda Downloads](https://img.shields.io/conda/dn/conda-forge/enmapbox-base.svg)](https://anaconda.org/conda-forge/enmapbox-base) | [![Conda Version](https://img.shields.io/conda/vn/conda-forge/enmapbox-base.svg)](https://anaconda.org/conda-forge/enmapbox-base) | [![Conda Platforms](https://img.shields.io/conda/pn/conda-forge/enmapbox-base.svg)](https://anaconda.org/conda-forge/enmapbox-base) |
 
 Installing enmapbox
 ===================
@@ -54,16 +54,16 @@ conda config --add channels conda-forge
 conda config --set channel_priority strict
 ```
 
-Once the `conda-forge` channel has been enabled, `enmapbox, enmapbox-lite` can be installed with `conda`:
+Once the `conda-forge` channel has been enabled, `enmapbox, enmapbox-base` can be installed with `conda`:
 
 ```
-conda install enmapbox enmapbox-lite
+conda install enmapbox enmapbox-base
 ```
 
 or with `mamba`:
 
 ```
-mamba install enmapbox enmapbox-lite
+mamba install enmapbox enmapbox-base
 ```
 
 It is possible to list all of the versions of `enmapbox` available on your platform with `conda`:
