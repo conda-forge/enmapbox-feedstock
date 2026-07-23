@@ -12,7 +12,7 @@ outputs:
   # -------------------
   # Lite / core version
   # -------------------
-  - name: enmapbox-base
+  - name: enmapbox-lite
     build:
       noarch: generic
     requirements:
@@ -45,7 +45,7 @@ outputs:
       noarch: generic
     requirements:
       run:
-        - {{ pin_subpackage('enmapbox-base', exact=True) }}
+        - {{ pin_subpackage('enmapbox-lite', exact=True) }}
         - astropy-base
         - catboost
         - enfrosp_enmapboxapp
@@ -84,9 +84,9 @@ about:
     Meta-package providing all conda dependencies required to run
     several versions of the EnMAP-Box QGIS plugin.
   description: |
-    This is a conda meta-package that installs the full runtime
+    This is a conda meta-package that installs the runtime
     dependency stack defined in the EnMAP-Box conda environment
-    files (e.g. enmapbox_full_latest.yml).
+    files.
 
     The EnMAP-Box plugin itself is NOT included and must be installed
     via the QGIS Plugin Manager.
