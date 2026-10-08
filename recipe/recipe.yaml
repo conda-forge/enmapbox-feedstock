@@ -1,24 +1,28 @@
-{% set version = "0.2.0" %}
-{% set qgis_ltr_version = "3.44" %}  # adjust to current LTR
+schema_version: 1
 
-package:
+context:
+  version: "0.2.0"
+  qgis_ltr_version: "3.44"  # adjust to current LTR
+
+recipe:
   name: enmapbox-suite
-  version: {{ version }}
+  version: ${{ version }}
 
 build:
-  number: 1
+  number: 2
 
 outputs:
   # -------------------
   # Lite / core version
   # -------------------
-  - name: enmapbox-lite
+  - package:
+      name: enmapbox-lite
     build:
       noarch: generic
     requirements:
       run:
         - python >=3.10
-        - qgis >={{ qgis_ltr_version }},<4
+        - qgis >=${{ qgis_ltr_version }},<4
         - colorama
         - defusedxml
         - gdal
@@ -28,24 +32,25 @@ outputs:
         - pyqtgraph
         - scikit-learn
         - skops
-    test:
-      commands:
-        # QGIS Python must start
-        - python -c "import os; os.environ['QT_QPA_PLATFORM']='offscreen'; from qgis.core import QgsApplication; app = QgsApplication([], False); app.initQgis(); print('QGIS OK'); app.exitQgis()"
-      imports:
-        - qgis
-        - osgeo.gdal
-        - numba
-
+    tests:
+      - python:
+          imports:
+            - qgis
+            - osgeo.gdal
+            - numba
+          pip_check: false
+      - script:
+          - python -c "import os; os.environ['QT_QPA_PLATFORM']='offscreen'; from qgis.core import QgsApplication; app = QgsApplication([], False); app.initQgis(); print('QGIS OK'); app.exitQgis()"
   # ------------
   # Full version
   # ------------
-  - name: enmapbox
+  - package:
+      name: enmapbox
     build:
       noarch: generic
     requirements:
       run:
-        - {{ pin_subpackage('enmapbox-lite', exact=True) }}
+        - ${{ pin_subpackage('enmapbox-lite', exact=True) }}
         - astropy-base
         - catboost
         - enfrosp_enmapboxapp
@@ -64,20 +69,18 @@ outputs:
         - tensorboard
         - torchvision
         - xgboost
-
-    test:
-      commands:
-        # QGIS Python must start
-        - python -c "import os; os.environ['QT_QPA_PLATFORM']='offscreen'; from qgis.core import QgsApplication; app = QgsApplication([], False); app.initQgis(); print('QGIS OK'); app.exitQgis()"
-      imports:
-        - qgis
-        - osgeo.gdal
-        - enpt
-        - numba
-
+    tests:
+      - python:
+          imports:
+            - qgis
+            - osgeo.gdal
+            - enpt
+            - numba
+          pip_check: true
+      - script:
+          - python -c "import os; os.environ['QT_QPA_PLATFORM']='offscreen'; from qgis.core import QgsApplication; app = QgsApplication([], False); app.initQgis(); print('QGIS OK'); app.exitQgis()"
 
 about:
-  home: https://github.com/EnMAP-Box/enmap-box
   license: GPL-3.0-only
   license_file: LICENSE.md
   summary: >
@@ -90,8 +93,9 @@ about:
 
     The EnMAP-Box plugin itself is NOT included and must be installed
     via the QGIS Plugin Manager.
-  dev_url: https://github.com/EnMAP-Box/enmap-box
-  doc_url: https://enmap-box.readthedocs.io/
+  homepage: https://github.com/EnMAP-Box/enmap-box
+  repository: https://github.com/EnMAP-Box/enmap-box
+  documentation: https://enmap-box.readthedocs.io/
 
 extra:
   feedstock-name: enmapbox

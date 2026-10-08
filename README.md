@@ -9,7 +9,6 @@ Package license: GPL-3.0-only
 
 Summary: Meta-package providing all conda dependencies required to run several versions of the EnMAP-Box QGIS plugin.
 
-
 Development: https://github.com/EnMAP-Box/enmap-box
 
 Documentation: https://enmap-box.readthedocs.io/
@@ -20,7 +19,6 @@ files.
 
 The EnMAP-Box plugin itself is NOT included and must be installed
 via the QGIS Plugin Manager.
-
 
 Current build status
 ====================
